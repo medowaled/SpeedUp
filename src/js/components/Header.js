@@ -42,7 +42,7 @@ class SpeedupHeader extends HTMLElement {
         </div>
 
         <!-- Mobile Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass-card border-t border-slate-200/50 shadow-xl py-6 px-6 transition-all duration-300 ease-in-out bg-white/95">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full border-t border-slate-200/50 shadow-xl py-6 px-6 transition-all duration-300 ease-in-out bg-white">
           <nav class="flex flex-col gap-4 text-slate-800 font-bold text-lg text-right" dir="rtl">
             <a href="./index.html" class="nav-link py-2 border-b border-slate-100 hover:text-blue-600" data-page="home">الرئيسية</a>
             <a href="./services.html" class="nav-link py-2 border-b border-slate-100 hover:text-blue-600" data-page="services">الخدمات</a>
