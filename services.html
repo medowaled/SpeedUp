@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="./src/assets/logo.jpg">
+  
+  <!-- SEO Meta Tags -->
+  <title>خدماتنا بالتفصيل | SpeedUp | هندسة البرمجيات وتسويق الأداء</title>
+  <meta name="description" content="تعرف على خدمات وكالة SpeedUp بالتفصيل: هندسة البرمجيات السحابية، حلول وتطبيقات الويب السريعة، إدارات حملات تسويق الأداء الرقمي المتقدمة، وتحليلات البيانات.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles Entry -->
+  <link rel="stylesheet" href="./src/css/style.css">
+
+  <!-- Analytics Placeholders -->
+  <script>
+    // Google Analytics, Pixel, etc.
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Sticky Header component -->
+  <speedup-header></speedup-header>
+
+  <!-- Main content to swap -->
+  <main class="flex-grow pt-28 pb-20 md:pb-32 transition-opacity duration-300">
+    <div class="container mx-auto px-4 md:px-8">
+      
+      <!-- Hero/Header Section -->
+      <section class="max-w-3xl mx-auto text-center mb-16 flex flex-col gap-4">
+        <span class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1 w-max mx-auto">ما نقوم به بمثالية</span>
+        <h1 class="text-3xl md:text-5xl font-black text-slate-950 leading-tight">هندسة تقنية صلبة وحملات تسويقية تركز على النتائج</h1>
+        <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+          نحن لا نقوم فقط بتطوير برمجيات أو إطلاق إعلانات؛ نحن نكامل بينهما لبناء محرك نمو متكامل للأعمال والمؤسسات الكبرى.
+        </p>
+      </section>
+
+      <!-- Dynamic Detailed Services List Container -->
+      <section id="services-detail-list" class="flex flex-col gap-12 max-w-5xl mx-auto">
+        <!-- Rendered by src/js/main.js dynamically -->
+        <div class="flex justify-center py-20">
+          <div class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      </section>
+
+      <!-- Bottom Quick CTA -->
+      <section class="mt-20 max-w-4xl mx-auto dark-glass-card rounded-3xl p-8 md:p-12 border border-slate-800 bg-slate-950 text-white flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-dot-pattern pointer-events-none opacity-20"></div>
+        <div class="relative z-10 text-right flex flex-col gap-2">
+          <h3 class="text-xl md:text-2xl font-bold">هل تبحث عن حل برمجيات مخصص لشركتك؟</h3>
+          <p class="text-slate-400 text-xs md:text-sm">تحدث اليوم مع أحد مهندسي النظم لدينا لوضع هيكل تقني أولي لمشروعك.</p>
+        </div>
+        <div class="relative z-10 shrink-0">
+          <a href="./contact.html" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-6 py-3 rounded-xl shadow-lg transition-all text-xs glow-effect">
+            اطلب اتصال مهندس النظم
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer component -->
+  <speedup-footer></speedup-footer>
+
+  <!-- Entry Script Bundle -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>

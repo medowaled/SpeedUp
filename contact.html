@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="./src/assets/logo.jpg">
+
+  <!-- SEO Meta Tags -->
+  <title>طلب عرض سعر واستشارة مجانية | SpeedUp | هندسة البرمجيات وتسويق الأداء</title>
+  <meta name="description"
+    content="اتصل بوكالة SpeedUp أو اطلب تسعيرة متكاملة لمشروعك البرمجي أو التسويقي. حدد ميزانيتك ونوع الخدمة وتواصل معنا للبدء فورا.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom Styles Entry -->
+  <link rel="stylesheet" href="./src/css/style.css">
+
+  <!-- Analytics Placeholders -->
+  <script>
+    // Analytics
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Sticky Header component -->
+  <speedup-header></speedup-header>
+
+  <!-- Main content to swap -->
+  <main class="flex-grow pt-28 pb-20 md:pb-32 transition-opacity duration-300">
+    <div class="container mx-auto px-4 md:px-8">
+
+      <!-- Hero Header Section -->
+      <section class="max-w-3xl mx-auto text-center mb-16 flex flex-col gap-4">
+        <span
+          class="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-4 py-1 w-max mx-auto">تواصل
+          معنا الآن</span>
+        <h1 class="text-3xl md:text-5xl font-black text-slate-950 leading-tight">جاهز لبدء رحلة النمو؟ دعنا نخطط معاً
+        </h1>
+        <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+          أرسل لنا تفاصيل مشروعك أو حدد نوع الاستشارة المطلوبة، وسيقوم أحد مهندسي النظم أو خبراء تسويق الأداء لدينا
+          بالتواصل معك خلال 24 ساعة كحد أقصى.
+        </p>
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto items-start">
+
+        <!-- Left Side: Interactive Advanced Form (takes 7 cols) -->
+        <section class="lg:col-span-7 glass-card p-6 md:p-10 rounded-3xl border border-slate-200/60 shadow-md bg-white">
+          <h2 class="text-xl font-bold text-slate-950 mb-6 border-r-4 border-orange-500 pr-3">تفاصيل طلب الخدمة</h2>
+
+          <form id="quote-form" class="flex flex-col gap-5 text-right">
+
+            <!-- Contact Name -->
+            <div class="flex flex-col gap-1.5">
+              <label for="client-name" class="text-xs font-bold text-slate-600">الاسم الكامل *</label>
+              <input type="text" id="client-name" name="name" required placeholder="مثال: أحمد عبد الله"
+                class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-colors">
+            </div>
+
+            <!-- Email & Phone Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1.5">
+                <label for="client-email" class="text-xs font-bold text-slate-600">البريد الإلكتروني *</label>
+                <input type="email" id="client-email" name="email" required placeholder="name@company.com"
+                  class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-colors text-left"
+                  dir="ltr">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="client-phone" class="text-xs font-bold text-slate-600">رقم الجوال *</label>
+                <input type="tel" id="client-phone" name="phone" required placeholder="+966 50 000 0000"
+                  class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-colors text-left"
+                  dir="ltr">
+              </div>
+            </div>
+
+            <!-- Project Type Selection -->
+            <div class="flex flex-col gap-1.5">
+              <label for="project-type" class="text-xs font-bold text-slate-600">نوع الخدمة المطلوبة *</label>
+              <select id="project-type" name="service" required
+                class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-colors">
+                <option value="" disabled selected>اختر الخدمة...</option>
+                <option value="software">هندسة البرمجيات وحلول المؤسسات</option>
+                <option value="web">حلول الويب وتطبيقات التجارة الإلكترونية</option>
+                <option value="marketing">إعلانات الأداء والتسويق الرقمي</option>
+                <option value="data">تحليل البيانات وإعداد التتبع الذكي</option>
+              </select>
+            </div>
+
+            <!-- Budget Slider Dynamic -->
+            <div class="flex flex-col gap-2.5 mt-2">
+              <div class="flex justify-between items-center">
+                <label for="project-budget" class="text-xs font-bold text-slate-600">الميزانية المتوقعة للمشروع</label>
+                <span id="budget-value"
+                  class="text-xs font-black text-orange-600 bg-orange-50 border border-orange-100 rounded-md px-3 py-1">5,000
+                  $ - 10,000 $</span>
+              </div>
+              <input type="range" id="project-budget" name="budget" min="0" max="4" step="1" value="2"
+                class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+              <div class="flex justify-between text-[10px] text-slate-400 font-bold px-1">
+                <span>أقل</span>
+                <span>متوسط</span>
+                <span>كبير</span>
+              </div>
+            </div>
+
+            <!-- Project Description -->
+            <div class="flex flex-col gap-1.5">
+              <label for="project-details" class="text-xs font-bold text-slate-600">تفاصيل إضافية / متطلبات خاصة</label>
+              <textarea id="project-details" name="details" rows="4"
+                placeholder="يرجى وصف متطلبات مشروعك، الأهداف، أو أي تحديات تواجهها حالياً..."
+                class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600 focus:bg-white transition-colors"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all text-sm mt-4 text-center cursor-pointer glow-effect">
+              إرسال الطلب وحساب عرض السعر
+            </button>
+
+          </form>
+        </section>
+
+        <!-- Right Side: Side details & Contact info card (takes 5 cols) -->
+        <section class="lg:col-span-5 flex flex-col gap-8">
+
+          <!-- Information Card -->
+          <div class="glass-card p-6 md:p-8 rounded-3xl border border-slate-200/60 shadow-sm bg-white">
+            <h3 class="text-lg font-bold text-slate-950 mb-6 border-r-4 border-blue-600 pr-3">معلومات التواصل المباشر
+            </h3>
+
+            <ul class="flex flex-col gap-5 text-sm">
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="block font-bold text-slate-900 mb-0.5">المقر الرئيسي</span>
+                  <span class="text-xs text-slate-500">طريق مصر اسكندريه الزراعي - قليوب - برج اسماك السلطان - الدور
+                    الخامس </span>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z">
+                    </path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="block font-bold text-slate-900 mb-0.5">البريد الإلكتروني</span>
+                  <a href="mailto:info@speedup.sa" class="text-xs text-blue-600 hover:underline">info@speedup.sa</a>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2c.08.314-.006.647-.248.881L8.83 8.56a17.124 17.124 0 007.07 7.07l1.71-1.71a1 1 0 01.933-.248l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                    </path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="block font-bold text-slate-900 mb-0.5">الهاتف الموحد</span>
+                  <div class="flex gap-2 text-xs text-slate-500">
+                    <a href="tel:01099444012" class="hover:text-blue-600 transition-colors">01099444012</a>
+                    <span>/</span>
+                    <a href="tel:01095412229" class="hover:text-blue-600 transition-colors">01095412229</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Decorative Placeholder Map / SLA stats -->
+          <div
+            class="dark-glass-card p-6 md:p-8 rounded-3xl border border-slate-800 bg-slate-950 text-white relative overflow-hidden flex flex-col gap-4">
+            <div class="absolute inset-0 bg-grid-pattern pointer-events-none opacity-20"></div>
+            <h4 class="text-base font-bold relative z-10 border-r-2 border-orange-500 pr-2">اتفاقية مستوى الخدمة لدينا
+              (SLA)</h4>
+            <ul class="text-xs flex flex-col gap-3 relative z-10 text-slate-400">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <span>رد أول للمقترحات البرمجية في أقل من 24 ساعة.</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <span>اجتماع استشاري وتفصيلي مجاني لمدة 30 دقيقة.</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <span>شفافية كاملة في احتساب ميزانيات الحملات وأسعار البرمجة.</span>
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Reusable Success Notification Modal (simulated on submit) -->
+  <div id="quote-success-modal"
+    class="fixed inset-0 z-100 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm px-4">
+    <div
+      class="glass-card bg-white max-w-md w-full rounded-3xl p-8 border border-slate-200/50 shadow-2xl text-center relative flex flex-col items-center gap-5">
+      <!-- Success Icon Animation -->
+      <div
+        class="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 animate-bounce">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+
+      <h3 class="text-2xl font-black text-slate-950">تم استلام طلبك بنجاح!</h3>
+      <p class="text-sm text-slate-500 leading-relaxed">
+        شكرًا لاهتمامك بـ **SpeedUp**. لقد تم استلام تفاصيل مشروعك ميزانيتك المقدرة، ويقوم الآن أحد مستشاري النمو
+        ومهندسي النظم بمراجعتها.
+        <span class="block font-bold text-blue-600 mt-2">سنتواصل معك في أقل من 24 ساعة!</span>
+      </p>
+
+      <button id="modal-close-btn"
+        class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-3 px-8 rounded-xl w-full cursor-pointer transition-all mt-2">
+        إغلاق النافذة
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer component -->
+  <speedup-footer></speedup-footer>
+
+  <!-- Entry Script Bundle -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>

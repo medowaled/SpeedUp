@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="./src/assets/logo.jpg">
+
+  <!-- SEO Meta Tags -->
+  <title>SpeedUp | هندسة البرمجيات وتسويق الأداء للشركات والمؤسسات</title>
+  <meta name="description"
+    content="وكالة SpeedUp متخصصة في هندسة البرمجيات المتقدمة، حلول الويب فائقة السرعة، حملات تسويق الأداء المدفوعة بالبيانات، وتحليل البيانات لرفع العائد على الاستثمار.">
+  <meta name="keywords"
+    content="هندسة برمجيات, تسويق الأداء, تطوير ويب, تحليل بيانات, تحسين محركات البحث, زيادة المبيعات, شركات الرياض">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SpeedUp | هندسة البرمجيات وتسويق الأداء">
+  <meta property="og:description"
+    content="ندمج التقنيات السحابية المتطورة مع تسويق الأداء الذكي لتحقيق نمو رقمي قابل للتوسع لأعمالك.">
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom Styles Entry -->
+  <link rel="stylesheet" href="./src/css/style.css">
+
+  <!-- ==========================================
+       ANALYTICS & TRACKING INTEGRATION PLACEHOLDERS
+       ========================================== -->
+  <!-- Google Analytics Tag -->
+  <script>
+    /*
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    */
+  </script>
+  <!-- Facebook Pixel -->
+  <script>
+    /*
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+    */
+  </script>
+  <!-- Hotjar Tracking Code -->
+  <script>
+    /*
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:0000000,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    */
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Dynamic Sticky Header component -->
+  <speedup-header></speedup-header>
+
+  <!-- Main Dynamic Swappable Layout Content -->
+  <main class="flex-grow pt-24 transition-opacity duration-300">
+
+    <!-- Hero Section with 3D Coverflow Carousel -->
+    <section class="relative bg-slate-950 text-white bg-grid-pattern pt-16 pb-20 md:py-28 overflow-hidden">
+      <!-- Glow Gradients decorative background -->
+      <div class="absolute top-1/4 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none">
+      </div>
+
+      <!-- Top Text/Title Container -->
+      <div class="container mx-auto px-4 md:px-8 text-center max-w-3xl mx-auto mb-10 relative z-20 flex flex-col gap-4">
+        <div
+          class="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-full px-4 py-1.5 w-max mx-auto">
+          <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+          <span class="text-xs font-bold text-slate-300">أعمالنا الاستثنائية • اضغط على الموقع لزيارته</span>
+        </div>
+
+        <h1 id="active-slide-title"
+          class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-orange-400 leading-tight transition-all duration-300">
+          منصة التجارة الإلكترونية - Aura
+        </h1>
+
+        <p id="active-slide-desc"
+          class="text-sm md:text-base text-slate-400 leading-relaxed max-w-xl mx-auto transition-all duration-300">
+          تصميم وتطوير متجر إلكتروني متكامل عالي السرعة لقطاع الأزياء الراقية.
+        </p>
+      </div>
+
+      <!-- Coverflow Slider Wrapper -->
+      <div class="relative w-full max-w-6xl mx-auto px-4 flex items-center justify-between gap-4 select-none z-10"
+        dir="ltr">
+        <!-- Prev Arrow -->
+        <button id="coverflow-prev" class="coverflow-btn shrink-0" aria-label="Previous Project">
+          <svg class="w-6 h-6 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Slider viewport -->
+        <div id="hero-coverflow" class="coverflow-container flex-grow">
+          <!-- Dynamically loaded slides go here -->
+          <div class="flex items-center justify-center h-full">
+            <div class="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+
+        <!-- Next Arrow -->
+        <button id="coverflow-next" class="coverflow-btn shrink-0" aria-label="Next Project">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dots Indicators -->
+      <div id="coverflow-dots" class="coverflow-dots"></div>
+
+      <!-- Standard CTA button beneath carousel -->
+      <div class="text-center mt-12 relative z-20">
+        <a href="./contact.html"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-8 py-3.5 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all text-sm glow-effect inline-block">
+          اطلب استشارة مجانية لمشروعك
+        </a>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-slate-950 text-white bg-dot-pattern border-y border-slate-900 relative" id="stats-section">
+      <div class="container mx-auto px-4 md:px-8 relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          <div class="flex flex-col items-center text-center p-4">
+            <span
+              class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 stat-counter"
+              data-target="0.9" data-type="seconds">0.0s</span>
+            <span class="text-xs md:text-sm text-slate-400 font-bold mt-2">سرعة تحميل الصفحة الأولى</span>
+          </div>
+
+          <div class="flex flex-col items-center text-center p-4">
+            <span
+              class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 stat-counter"
+              data-target="4.5" data-type="multiplier">0.0x</span>
+            <span class="text-xs md:text-sm text-slate-400 font-bold mt-2">متوسط العائد الإعلاني ROAS</span>
+          </div>
+
+          <div class="flex flex-col items-center text-center p-4">
+            <span
+              class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 stat-counter"
+              data-target="300" data-type="percent">+0%</span>
+            <span class="text-xs md:text-sm text-slate-400 font-bold mt-2">زيادة سرعة معالجة الطلبات</span>
+          </div>
+
+          <div class="flex flex-col items-center text-center p-4">
+            <span
+              class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 stat-counter"
+              data-target="100">0</span>
+            <span class="text-xs md:text-sm text-slate-400 font-bold mt-2">نسبة التزام كفاءة البنية التحتية</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="py-20 md:py-32 bg-slate-50">
+      <div class="container mx-auto px-4 md:px-8">
+
+        <!-- Header Section -->
+        <div class="text-center max-w-2xl mx-auto mb-16 flex flex-col gap-4">
+          <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">خدماتنا الرئيسية</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-950">حلول متكاملة لهندسة البرمجيات والنمو الرقمي
+          </h2>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">
+            نوفر لشركتك التميز التقني والتسويقي تحت سقف واحد لضمان التنسيق الكامل والسرعة الفائقة في اتخاذ القرارات.
+          </p>
+        </div>
+
+        <!-- Grid Items -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <!-- Box 1 -->
+          <div
+            class="glass-card p-8 rounded-2xl border border-slate-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-950 mb-3 group-hover:text-blue-600 transition-colors">هندسة
+                البرمجيات</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-6">بناء وتطوير بنية تحتية سحابية موثوقة ونظم
+                Microservices قابلة للتوسع غير المحدود.</p>
+            </div>
+            <a href="./services.html#software-engineering"
+              class="text-xs font-bold text-slate-900 flex items-center gap-1 hover:text-blue-600 transition-colors">
+              <span>اقرأ المزيد</span>
+              <svg class="w-3.5 h-3.5 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Box 2 -->
+          <div
+            class="glass-card p-8 rounded-2xl border border-slate-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-950 mb-3 group-hover:text-blue-600 transition-colors">حلول الويب
+                الفائقة</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-6">تطوير منصات وتطبيقات ويب سريعة جداً تزيد من معدل
+                التحويل وتحسن تجربة عملائك.</p>
+            </div>
+            <a href="./services.html#web-solutions"
+              class="text-xs font-bold text-slate-900 flex items-center gap-1 hover:text-blue-600 transition-colors">
+              <span>اقرأ المزيد</span>
+              <svg class="w-3.5 h-3.5 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Box 3 -->
+          <div
+            class="glass-card p-8 rounded-2xl border border-slate-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-950 mb-3 group-hover:text-blue-600 transition-colors">إعلانات
+                الأداء</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-6">إدارة استراتيجيات الإعلانات المدفوعة على كافة
+                المنصات الرقمية لزيادة المبيعات وتقليص التكاليف.</p>
+            </div>
+            <a href="./services.html#performance-ads"
+              class="text-xs font-bold text-slate-900 flex items-center gap-1 hover:text-blue-600 transition-colors">
+              <span>اقرأ المزيد</span>
+              <svg class="w-3.5 h-3.5 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Box 4 -->
+          <div
+            class="glass-card p-8 rounded-2xl border border-slate-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-950 mb-3 group-hover:text-blue-600 transition-colors">تحليل
+                البيانات والتتبع</h3>
+              <p class="text-xs text-slate-500 leading-relaxed mb-6">تتبع أحداث التحويل من جهة الخادم بدقة 99.8% لضمان
+                تغذية خوارزميات التسويق بالبيانات الصحيحة.</p>
+            </div>
+            <a href="./services.html#data-analytics"
+              class="text-xs font-bold text-slate-900 flex items-center gap-1 hover:text-blue-600 transition-colors">
+              <span>اقرأ المزيد</span>
+              <svg class="w-3.5 h-3.5 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 md:py-24 gradient-bg text-white relative">
+      <div class="absolute inset-0 bg-grid-pattern pointer-events-none opacity-20"></div>
+      <div class="container mx-auto px-4 md:px-8 text-center relative z-10 flex flex-col gap-6 items-center">
+        <h2 class="text-3xl md:text-5xl font-black leading-tight max-w-3xl">جاهز لتسريع أداء أنظمتك ومضاعفة نتائجك
+          التسويقية؟</h2>
+        <p class="text-slate-400 max-w-xl text-sm md:text-base leading-relaxed">
+          دع فريق مهندسي البرمجيات وخبراء النمو في SpeedUp يجرون لك تحليلاً شاملاً لبنيتك التقنية الحالية وحملاتك
+          الرقمية مجاناً.
+        </p>
+        <div class="mt-4 flex gap-4">
+          <a href="./contact.html"
+            class="bg-orange-500 hover:bg-orange-600 text-white font-extrabold px-8 py-3.5 rounded-xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all text-sm glow-effect">
+            اطلب تسعيرة للمشروع
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dynamic Footer Component -->
+  <speedup-footer></speedup-footer>
+
+  <!-- Entry Script Bundle for Development & Bundling -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
