@@ -222,7 +222,7 @@ function initCoverflowCarousel() {
   // Render slides dynamically
   container.innerHTML = portfolio.map((project, idx) => `
     <div class="coverflow-slide" data-index="${idx}" data-url="${project.websiteUrl}">
-      <img src="${project.imageUrl}" alt="${project.title}" width="600" height="400" decoding="async" ${idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+      <img src="${project.imageUrl}" alt="${project.title}" width="290" height="390" decoding="async" ${idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
       <div class="coverflow-overlay">
         <div class="flex justify-between items-center gap-2">
           <div class="text-right">

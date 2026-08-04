@@ -10,12 +10,30 @@
     --color-energy-orange-hover: #ea580c;
   }
 
+  /* Prevent CLS with font-display swap fallback */
+  @font-face {
+    font-family: 'Cairo';
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+
   body {
     font-family: 'Cairo', 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--color-primary-light);
     color: var(--color-primary-dark);
     scroll-behavior: smooth;
     overflow-x: hidden;
+    font-display: swap;
+  }
+
+  /* Prevent image & video layout shifts */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    font-display: swap;
   }
 }
 
@@ -106,7 +124,9 @@
   perspective: 1400px;
   position: relative;
   height: 480px;
+  min-height: 480px;
   width: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,6 +138,7 @@
   position: absolute;
   width: 290px;
   height: 390px;
+  aspect-ratio: 3 / 4;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s, z-index 0.6s;
   transform-style: preserve-3d;
   border-radius: 24px;
@@ -131,7 +152,23 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 3 / 4;
   transition: filter 0.5s;
+}
+
+/* Mobile responsive fixes for CLS prevention */
+@media (max-width: 768px) {
+  .coverflow-container {
+    height: 340px;
+    min-height: 340px;
+    aspect-ratio: 4 / 3;
+  }
+  
+  .coverflow-slide {
+    width: 220px;
+    height: 290px;
+    aspect-ratio: 3 / 4;
+  }
 }
 
 .coverflow-slide.active {

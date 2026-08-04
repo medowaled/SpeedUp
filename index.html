@@ -237,11 +237,18 @@
           </svg>
         </button>
 
-        <!-- Slider viewport -->
+        <!-- Slider viewport with static initial LCP image pre-rendered for instant paint & zero CLS -->
         <div id="hero-coverflow" class="coverflow-container flex-grow">
-          <!-- Dynamically loaded slides go here -->
-          <div class="flex items-center justify-center h-full">
-            <div class="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+          <div class="coverflow-slide active" data-index="0" style="transform: translateX(0) scale(1) rotateY(0); z-index: 20; opacity: 1;">
+            <img src="./src/assets/mustafa-khalil.webp" alt="منصة مستر مصطفى خليل التعليمية" width="290" height="390" fetchpriority="high" decoding="async">
+            <div class="coverflow-overlay">
+              <div class="flex justify-between items-center gap-2">
+                <div class="text-right">
+                  <h2 class="text-xs md:text-sm font-black leading-tight text-white">منصة مستر مصطفى خليل التعليمية</h2>
+                  <span class="text-[10px] font-bold text-slate-400 mt-1 block">تطوير منصات التعليم</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
