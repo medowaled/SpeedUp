@@ -17,7 +17,7 @@ class SpeedupFooter extends HTMLElement {
             
             <!-- Column 1: Agency Brand -->
             <div class="flex flex-col gap-4">
-              <a href="./index.html" class="w-fit self-start bg-white p-2.5 rounded-2xl shadow-lg border border-slate-850 nav-link transition-transform hover:scale-103 duration-300">
+              <a href="./index.html" class="w-fit self-start bg-white p-2.5 rounded-2xl shadow-lg border border-slate-850 nav-link transition-transform hover:scale-103 duration-300 min-w-[140px] min-h-[40px]">
                 <img src="${logoUrl}" alt="SpeedUp Logo" width="160" height="40" decoding="async" loading="lazy" class="h-8 md:h-10 w-auto object-contain">
               </a>
 
