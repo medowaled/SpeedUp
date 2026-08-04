@@ -13,7 +13,7 @@ class SpeedupHeader extends HTMLElement {
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <!-- Logo -->
           <a href="./index.html" class="flex items-center select-none nav-link bg-white border border-slate-200/80 shadow-sm rounded-xl p-1.5 hover:shadow-md hover:border-blue-500/30 transition-all duration-300">
-            <img src="${logoUrl}" alt="SpeedUp Logo" class="h-8 md:h-9 w-auto object-contain transition-all duration-300">
+            <img src="${logoUrl}" alt="SpeedUp Logo" width="160" height="40" decoding="async" fetchpriority="high" class="h-8 md:h-9 w-auto object-contain transition-all duration-300">
           </a>
 
 

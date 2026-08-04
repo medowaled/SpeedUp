@@ -222,7 +222,7 @@ function initCoverflowCarousel() {
   // Render slides dynamically
   container.innerHTML = portfolio.map((project, idx) => `
     <div class="coverflow-slide" data-index="${idx}" data-url="${project.websiteUrl}">
-      <img src="${project.imageUrl}" alt="${project.title}">
+      <img src="${project.imageUrl}" alt="${project.title}" width="600" height="400" decoding="async" ${idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
       <div class="coverflow-overlay">
         <div class="flex justify-between items-center gap-2">
           <div class="text-right">
@@ -568,7 +568,7 @@ function initAboutPage() {
     teamGrid.innerHTML = team.map(member => `
       <div class="glass-card rounded-2xl border border-slate-200/50 overflow-hidden text-center p-6 hover:shadow-lg transition-all duration-300">
         <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-blue-500/20 p-1">
-          <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full bg-slate-100" loading="lazy">
+          <img src="${member.image}" alt="${member.name}" width="96" height="96" decoding="async" loading="lazy" class="w-full h-full object-cover rounded-full bg-slate-100">
         </div>
         <h3 class="text-lg font-extrabold text-slate-900">${member.name}</h3>
         <span class="text-xs font-bold text-orange-600 mt-1 block">${member.role}</span>

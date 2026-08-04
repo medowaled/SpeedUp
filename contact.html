@@ -58,12 +58,17 @@
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- LCP & Logo Preload -->
+  <link rel="preload" as="image" href="./src/assets/logo.webp" fetchpriority="high">
+
+  <!-- Google Fonts - Non-Render-Blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  </noscript>
 
   <!-- Custom Styles Entry -->
   <link rel="stylesheet" href="./src/css/style.css">
@@ -179,8 +184,8 @@
 
           <!-- Information Card -->
           <div class="glass-card p-6 md:p-8 rounded-3xl border border-slate-200/60 shadow-sm bg-white">
-            <h3 class="text-lg font-bold text-slate-950 mb-6 border-r-4 border-blue-600 pr-3">معلومات التواصل المباشر
-            </h3>
+            <h2 class="text-lg font-bold text-slate-950 mb-6 border-r-4 border-blue-600 pr-3">معلومات التواصل المباشر
+            </h2>
 
             <ul class="flex flex-col gap-5 text-sm">
               <li class="flex items-start gap-4">
@@ -237,8 +242,8 @@
           <div
             class="dark-glass-card p-6 md:p-8 rounded-3xl border border-slate-800 bg-slate-950 text-white relative overflow-hidden flex flex-col gap-4">
             <div class="absolute inset-0 bg-grid-pattern pointer-events-none opacity-20"></div>
-            <h4 class="text-base font-bold relative z-10 border-r-2 border-orange-500 pr-2">اتفاقية مستوى الخدمة لدينا
-              (SLA)</h4>
+            <h3 class="text-base font-bold relative z-10 border-r-2 border-orange-500 pr-2">اتفاقية مستوى الخدمة لدينا
+              (SLA)</h3>
             <ul class="text-xs flex flex-col gap-3 relative z-10 text-slate-400">
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
