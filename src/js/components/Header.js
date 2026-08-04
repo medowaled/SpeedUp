@@ -1,5 +1,5 @@
 // Reusable Sticky Header Component
-import logoUrl from '../../assets/logo.jpg';
+import logoUrl from '../../assets/logo.webp';
 
 class SpeedupHeader extends HTMLElement {
   connectedCallback() {

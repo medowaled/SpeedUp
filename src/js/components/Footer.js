@@ -1,5 +1,5 @@
 // Reusable Footer Component
-import logoUrl from '../../assets/logo.jpg';
+import logoUrl from '../../assets/logo.webp';
 
 class SpeedupFooter extends HTMLElement {
   connectedCallback() {

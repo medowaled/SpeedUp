@@ -1,24 +1,24 @@
 // Data for SpeedUp Website
-import mustafaKhalilImg from '../assets/mustafa-khalil.png';
-import newPowerGlobalImg from '../assets/new-power-global.png';
-import alShareefImg from '../assets/al-shareef.png';
-import lisbonClubImg from '../assets/lisbon-club.png';
-import medicCareImg from '../assets/medic-care.png';
-import mocaCafeImg from '../assets/moca-cafe.png';
-import zayEcommerceImg from '../assets/zay-ecommerce.png';
-import restoranImg from '../assets/restoran.png';
-import nouryanTravelImg from '../assets/nouryan-travel.png';
+import mustafaKhalilImg from '../assets/mustafa-khalil.webp';
+import newPowerGlobalImg from '../assets/new-power-global.webp';
+import alShareefImg from '../assets/al-shareef.webp';
+import lisbonClubImg from '../assets/lisbon-club.webp';
+import medicCareImg from '../assets/medic-care.webp';
+import mocaCafeImg from '../assets/moca-cafe.webp';
+import zayEcommerceImg from '../assets/zay-ecommerce.webp';
+import restoranImg from '../assets/restoran.webp';
+import nouryanTravelImg from '../assets/nouryan-travel.webp';
 
 // Team Images
-import teamCtoImg from '../assets/team-cto.png';
-import teamCmoImg from '../assets/team-cmo.png';
-import teamLeadImg from '../assets/team-lead.png';
+import teamCtoImg from '../assets/team-cto.webp';
+import teamCmoImg from '../assets/team-cmo.webp';
+import teamLeadImg from '../assets/team-lead.webp';
 
 // Dashboard / Marketing / Data Images
-import marketingDashboard1Img from '../assets/marketing-dashboard-1.png';
-import marketingDashboard2Img from '../assets/marketing-dashboard-2.png';
-import dataDashboard1Img from '../assets/data-dashboard-1.png';
-import dataDashboard2Img from '../assets/data-dashboard-2.png';
+import marketingDashboard1Img from '../assets/marketing-dashboard-1.webp';
+import marketingDashboard2Img from '../assets/marketing-dashboard-2.webp';
+import dataDashboard1Img from '../assets/data-dashboard-1.webp';
+import dataDashboard2Img from '../assets/data-dashboard-2.webp';
 
 export const services = [
   {
