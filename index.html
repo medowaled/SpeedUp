@@ -146,7 +146,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- Custom Styles Entry -->
+  <!-- Custom Styles Entry with Preload -->
+  <link rel="preload" as="style" href="./src/css/style.css">
   <link rel="stylesheet" href="./src/css/style.css">
 
   <!-- ==========================================
@@ -446,7 +447,7 @@
   <speedup-footer></speedup-footer>
 
   <!-- Entry Script Bundle for Development & Bundling -->
-  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/main.js" defer></script>
 </body>
 
 </html>

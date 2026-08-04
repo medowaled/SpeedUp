@@ -501,7 +501,7 @@ function initPortfolioPage() {
             </div>
           </div>
           
-          <h3 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">${project.title}</h3>
+          <h2 class="text-xl font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">${project.title}</h2>
           <p class="text-sm text-slate-500 mb-6 leading-relaxed">${project.desc}</p>
           
           <!-- Case Study Breakdowns (Problem -> Solution) -->

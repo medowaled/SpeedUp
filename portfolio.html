@@ -64,7 +64,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- Custom Styles Entry -->
+  <!-- Custom Styles Entry with Preload -->
+  <link rel="preload" as="style" href="./src/css/style.css">
   <link rel="stylesheet" href="./src/css/style.css">
 
   <!-- Analytics Placeholders -->
@@ -108,7 +109,7 @@
       <section class="mt-20 max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 border border-slate-200/60 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden bg-white/70">
         <div class="absolute inset-0 bg-grid-pattern pointer-events-none opacity-20"></div>
         <div class="relative z-10 text-right flex flex-col gap-2">
-          <h3 class="text-xl md:text-2xl font-bold text-slate-950">هل تريد تحقيق نتائج مماثلة لأعمالك؟</h3>
+          <h2 class="text-xl md:text-2xl font-bold text-slate-950">هل تريد تحقيق نتائج مماثلة لأعمالك؟</h2>
           <p class="text-slate-500 text-xs md:text-sm">تواصل مع مستشاري النمو لدينا اليوم لمناقشة أهدافك وطريقة تحقيقها.</p>
         </div>
         <div class="relative z-10 shrink-0">
@@ -125,6 +126,6 @@
   <speedup-footer></speedup-footer>
 
   <!-- Entry Script Bundle -->
-  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/main.js" defer></script>
 </body>
 </html>
