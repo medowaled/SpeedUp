@@ -660,10 +660,26 @@ function initContactPage() {
 • التفاصيل: ${details || 'لا توجد تفاصيل إضافية'}`;
 
       const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/201099444012?text=${encodedMessage}`;
-
       // Open WhatsApp in a new tab
       window.open(whatsappUrl, '_blank');
+
+      // Also send email copy to Speeduptech2026@gmail.com
+      try {
+        fetch("https://formsubmit.co/ajax/Speeduptech2026@gmail.com", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `طلب استشارة جديد من ${name} - SpeedUp`,
+            _template: 'table',
+            الاسم: name,
+            البريد_الإلكتروني: email,
+            رقم_الهاتف: phone,
+            نوع_الخدمة: service,
+            الميزانية_المتوقعة: budget,
+            تفاصيل_المشروع: details || 'لا توجد تفاصيل إضافية'
+          })
+        }).catch(err => console.warn('Email notify note:', err));
+      } catch (e) {}
 
       // Trigger visual success modal
       successModal.classList.remove('hidden');
