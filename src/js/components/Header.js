@@ -9,11 +9,11 @@ class SpeedupHeader extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4" id="main-header">
+      <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs" id="main-header">
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <!-- Logo -->
-          <a href="./index.html" class="flex items-center select-none nav-link bg-white border border-slate-200/80 shadow-sm rounded-xl p-1.5 hover:shadow-md hover:border-blue-500/30 transition-all duration-300 min-w-[140px] min-h-[40px]">
-            <img src="${logoUrl}" alt="SpeedUp Logo" width="160" height="40" decoding="async" fetchpriority="high" class="h-8 md:h-9 w-auto object-contain transition-all duration-300">
+          <a href="./index.html" class="flex items-center select-none nav-link transition-transform hover:scale-105 duration-300 group py-0.5" aria-label="SpeedUp Home">
+            <img src="${logoUrl}" alt="SpeedUp Logo" width="160" height="48" decoding="async" fetchpriority="high" class="h-10 md:h-12 w-auto object-contain transition-all duration-300 filter group-hover:brightness-105">
           </a>
 
 
@@ -86,11 +86,11 @@ class SpeedupHeader extends HTMLElement {
     if (header) {
       window.addEventListener('scroll', () => {
         if (window.scrollY > 20) {
-          header.classList.add('glass-card', 'shadow-md', 'backdrop-blur-md', 'bg-white/85', 'py-3');
-          header.classList.remove('py-4');
+          header.classList.add('shadow-md', 'bg-white/95', 'py-2');
+          header.classList.remove('py-3', 'bg-white/90');
         } else {
-          header.classList.remove('glass-card', 'shadow-md', 'backdrop-blur-md', 'bg-white/85', 'py-3');
-          header.classList.add('py-4');
+          header.classList.remove('shadow-md', 'bg-white/95', 'py-2');
+          header.classList.add('py-3', 'bg-white/90');
         }
       });
     }

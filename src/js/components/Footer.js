@@ -1,5 +1,5 @@
 // Reusable Footer Component
-import logoUrl from '../../assets/logo.webp';
+import logoLightUrl from '../../assets/logo-light.webp';
 
 class SpeedupFooter extends HTMLElement {
   connectedCallback() {
@@ -17,8 +17,8 @@ class SpeedupFooter extends HTMLElement {
             
             <!-- Column 1: Agency Brand -->
             <div class="flex flex-col gap-4">
-              <a href="./index.html" class="w-fit self-start bg-white p-2.5 rounded-2xl shadow-lg border border-slate-850 nav-link transition-transform hover:scale-103 duration-300 min-w-[140px] min-h-[40px]">
-                <img src="${logoUrl}" alt="SpeedUp Logo" width="160" height="40" decoding="async" loading="lazy" class="h-8 md:h-10 w-auto object-contain">
+              <a href="./index.html" class="w-fit self-start nav-link transition-transform hover:scale-105 duration-300 group py-1" aria-label="SpeedUp Home">
+                <img src="${logoLightUrl}" alt="SpeedUp Logo" width="160" height="48" decoding="async" loading="lazy" class="h-11 md:h-13 w-auto object-contain transition-all duration-300 filter group-hover:brightness-110">
               </a>
 
 
