@@ -1,5 +1,6 @@
 // Data for SpeedUp Website
-import mustafaKhalilImg from '../assets/mustafa-khalil.webp';
+import almutahidaPlusImg from '../assets/almutahida-plus.webp';
+import nileTexPlusImg from '../assets/nile-tex-plus.webp';
 import newPowerGlobalImg from '../assets/new-power-global.webp';
 import alShareefImg from '../assets/al-shareef.webp';
 import lisbonClubImg from '../assets/lisbon-club.webp';
@@ -89,21 +90,38 @@ export const services = [
 
 export const portfolio = [
   {
-    id: "project-1",
+    id: "project-almutahida-plus",
     category: "web",
-    title: "منصة مستر مصطفى خليل التعليمية",
-    desc: "منصة تعليمية تفاعلية لمادة العلوم.",
-    problem: "صعوبة تتبع تقدم الطلاب إلكترونياً وبطء استجابة المنصات الجاهزة لضغط الزوار المتزامن أثناء المراجعات النهائية.",
-    solution: "تطوير منصة ويب خاصة فائقة السرعة متوافقة مع الهواتف الذكية مع نظام تتبع درجات واختبارات تفاعلية مستمرة للطلاب.",
+    title: "منصة شركة المتحدة بلس للحواجز والخزانات",
+    desc: "منصة رقمية تفاعلية لعرض حواجز أمان نيوجيرسي للمشروعات والكباري والخزانات والأكشاك.",
+    problem: "الحاجة لمنصة تسويقية تستعرض منتجات حواجز الطرق المعتمدة هندسياً وتسهل طلبات عروض الأسعار والتوريد للمشروعات الكبرى.",
+    solution: "بناء موقع ويب تفاعلي فائق السرعة يعرض المنتجات والمواصفات الفنية مع ربط مباشر بقنوات المبيعات والخط الساخن والواتساب.",
     results: [
-      { label: "سرعة استجابة فائقة تحت الضغط", value: "+400%" },
-      { label: "عدد الطلاب النشطين شهرياً", value: "10K+" },
-      { label: "نسبة رضا الطلاب وأولياء الأمور", value: "98%" }
+      { label: "زيادة طلبات التوريد للمشروعات", value: "+120%" },
+      { label: "سرعة تحميل الموقع", value: "0.8 ث" },
+      { label: "معدل التحويل عبر الواتساب", value: "9.4%" }
     ],
-    tech: ["Vite", "Tailwind CSS", "Vanilla JS", "Node.js", "MongoDB"],
+    tech: ["Vite", "Tailwind CSS", "Vanilla JS", "WhatsApp API", "SEO Engine"],
     tag: "Web Solutions",
-    imageUrl: mustafaKhalilImg,
-    websiteUrl: "https://www.mostafa-khalil.com/"
+    imageUrl: almutahidaPlusImg,
+    websiteUrl: "https://almutahida-puls.com"
+  },
+  {
+    id: "project-nile-tex-plus",
+    category: "web",
+    title: "موقع شركة نايل تكس بلس للخزانات",
+    desc: "بوابة رقمية متكاملة لخزانات البولي إيثيلين والفايبر جلاس بأعلى معايير النقاء والأمان.",
+    problem: "صعوبة استعراض السعات المتعددة للخزانات الصناعية والمنازل من 500 إلى 20,000 لتر وطلب عروض الأسعار اللحظية.",
+    solution: "تطوير موقع إلكتروني يتميز بسرعة تحميل فائقة وتصفح مرن للسعات المختلفة مع زر طلب فوري لعروض الأسعار المخصصة.",
+    results: [
+      { label: "ارتفاع طلبات عروض الأسعار", value: "+95%" },
+      { label: "زمن استجابة الصفحة الأولى", value: "0.7 ث" },
+      { label: "نسبة الزيارات المستهدفة", value: "40K+" }
+    ],
+    tech: ["Vite", "Tailwind CSS", "Vanilla JS", "Cloudflare", "Performance SEO"],
+    tag: "Web Solutions",
+    imageUrl: nileTexPlusImg,
+    websiteUrl: "https://nile-tex-plus.com"
   },
   {
     id: "project-2",

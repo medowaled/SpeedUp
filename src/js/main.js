@@ -214,94 +214,197 @@ function initHomePage() {
 function initCoverflowCarousel() {
   const container = document.getElementById('hero-coverflow');
   const dotsContainer = document.getElementById('coverflow-dots');
-  const titleEl = document.getElementById('active-slide-title');
-  const descEl = document.getElementById('active-slide-desc');
-  
+  const prevBtn = document.getElementById('coverflow-prev');
+  const nextBtn = document.getElementById('coverflow-next');
+  const softwareTab = document.getElementById('tab-software');
+  const marketingTab = document.getElementById('tab-marketing');
+
+  // Active project highlight card elements
+  const activeTitle = document.getElementById('active-project-title');
+  const activeDesc = document.getElementById('active-project-desc');
+  const activeTag = document.getElementById('active-project-tag');
+  const activeLink = document.getElementById('active-project-link');
+
+  // Fallbacks if legacy elements exist
+  const legacyTitle = document.getElementById('active-slide-title');
+  const legacyDesc = document.getElementById('active-slide-desc');
+
   if (!container) return;
 
-  // Render slides dynamically
-  container.innerHTML = portfolio.map((project, idx) => `
-    <div class="coverflow-slide" data-index="${idx}" data-url="${project.websiteUrl}">
-      <img src="${project.imageUrl}" alt="${project.title}" width="290" height="390" decoding="async" ${idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
-      <div class="coverflow-overlay">
-        <div class="flex justify-between items-center gap-2">
-          <div class="text-right">
-            <h3 class="text-xs md:text-sm font-black leading-tight text-white">${project.title}</h3>
-            <span class="text-[10px] font-bold text-slate-400 mt-1 block">${project.tag}</span>
-          </div>
-          ${project.websiteUrl ? `
-          <span class="shrink-0 text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1">
-            <span>زيارة</span>
-            <svg class="w-3 h-3 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </span>
-          ` : ''}
-        </div>
-      </div>
-    </div>
-  `).join('');
+  let currentCategory = 'software'; // 'software' or 'marketing'
+  let currentList = [];
+  let currentIndex = 0;
+  let autoPlayTimer = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-  // Render dots
-  if (dotsContainer) {
-    dotsContainer.innerHTML = portfolio.map((_, idx) => `
-      <div class="coverflow-dot" data-index="${idx}"></div>
-    `).join('');
+  function getCategoryProjects(cat) {
+    if (cat === 'software') {
+      return portfolio.filter(p => p.category === 'web' || p.category === 'software');
+    } else {
+      return portfolio.filter(p => p.category === 'marketing' || p.category === 'data');
+    }
   }
 
-  let currentIndex = Math.floor(portfolio.length / 2); // Start at middle slide
-  const slides = container.querySelectorAll('.coverflow-slide');
-  const dots = dotsContainer ? dotsContainer.querySelectorAll('.coverflow-dot') : [];
-  let autoPlayTimer = null;
+  function renderCategory(cat, targetIndex = 0) {
+    currentCategory = cat;
+    currentList = getCategoryProjects(cat);
+    currentIndex = Math.min(Math.max(targetIndex, 0), Math.max(0, currentList.length - 1));
+
+    // Update theme classes on container & dots
+    container.className = `coverflow-container flex-grow theme-${cat}`;
+    if (dotsContainer) {
+      dotsContainer.className = `coverflow-dots theme-${cat}`;
+    }
+
+    // Render slides dynamically
+    container.innerHTML = currentList.map((project, idx) => `
+      <div class="coverflow-slide ${idx === currentIndex ? 'active' : ''}" data-index="${idx}" data-url="${project.websiteUrl || ''}">
+        <img src="${project.imageUrl}" alt="${project.title}" width="290" height="390" decoding="async" ${idx === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}>
+        <div class="coverflow-overlay">
+          <div class="flex justify-between items-center gap-2">
+            <div class="text-right">
+              <h3 class="text-xs md:text-sm font-black leading-tight text-white">${project.title}</h3>
+              <span class="text-[10px] font-bold text-slate-400 mt-1 block">${project.tag}</span>
+            </div>
+            ${project.websiteUrl ? `
+            <span class="shrink-0 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              <span>زيارة</span>
+              <svg class="w-3 h-3 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Render dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = currentList.map((_, idx) => `
+        <div class="coverflow-dot ${idx === currentIndex ? 'active' : ''}" data-index="${idx}"></div>
+      `).join('');
+    }
+
+    // Bind slide clicks
+    const slides = container.querySelectorAll('.coverflow-slide');
+    slides.forEach((slide, idx) => {
+      slide.addEventListener('click', () => {
+        if (idx === currentIndex) {
+          const url = slide.getAttribute('data-url');
+          if (url) window.open(url, '_blank');
+        } else {
+          currentIndex = idx;
+          updateCoverflow();
+          resetAutoPlay();
+        }
+      });
+    });
+
+    // Bind dot clicks
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.coverflow-dot');
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          currentIndex = idx;
+          updateCoverflow();
+          resetAutoPlay();
+        });
+      });
+    }
+
+    updateCoverflow();
+  }
 
   function updateCoverflow() {
-    const activeProject = portfolio[currentIndex];
-    
-    // Smooth transition for titles
-    if (titleEl && descEl) {
-      titleEl.style.opacity = '0';
-      descEl.style.opacity = '0';
+    if (!currentList.length) return;
+    const activeProject = currentList[currentIndex];
+    if (!activeProject) return;
+
+    // Update active highlight card
+    if (activeTitle) {
+      activeTitle.style.opacity = '0';
+      if (activeDesc) activeDesc.style.opacity = '0';
       setTimeout(() => {
-        titleEl.textContent = activeProject.title;
-        descEl.textContent = activeProject.desc;
-        titleEl.style.opacity = '1';
-        descEl.style.opacity = '1';
-      }, 150);
+        activeTitle.textContent = activeProject.title;
+        if (activeDesc) activeDesc.textContent = activeProject.desc;
+        if (activeTag) {
+          activeTag.textContent = activeProject.tag;
+          if (currentCategory === 'software') {
+            activeTag.className = 'text-xs font-bold px-3 py-0.5 rounded-full bg-blue-500/10 text-cyan-400 border border-blue-500/20';
+          } else {
+            activeTag.className = 'text-xs font-bold px-3 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20';
+          }
+        }
+        if (activeLink) {
+          if (activeProject.websiteUrl) {
+            activeLink.href = activeProject.websiteUrl;
+            activeLink.style.display = 'inline-flex';
+          } else {
+            activeLink.style.display = 'none';
+          }
+        }
+        activeTitle.style.opacity = '1';
+        if (activeDesc) activeDesc.style.opacity = '1';
+      }, 120);
     }
-    
-    const N = portfolio.length;
+
+    // Fallback for legacy elements
+    if (legacyTitle && legacyDesc) {
+      legacyTitle.style.opacity = '0';
+      legacyDesc.style.opacity = '0';
+      setTimeout(() => {
+        legacyTitle.textContent = activeProject.title;
+        legacyDesc.textContent = activeProject.desc;
+        legacyTitle.style.opacity = '1';
+        legacyDesc.style.opacity = '1';
+      }, 120);
+    }
+
+    const slides = container.querySelectorAll('.coverflow-slide');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.coverflow-dot') : [];
+    const N = currentList.length;
+
     slides.forEach((slide, idx) => {
       slide.classList.remove('active');
       let diff = idx - currentIndex;
-      
-      // Calculate circular distance for infinite scrolling
-      if (diff > N / 2) {
-        diff -= N;
-      } else if (diff < -N / 2) {
-        diff += N;
-      }
-      
+
+      // Circular distance for infinite carousel feel
+      if (diff > N / 2) diff -= N;
+      else if (diff < -N / 2) diff += N;
+
+      const factor = Math.abs(diff);
+
       if (diff === 0) {
         // Active Center slide
         slide.style.transform = `translateX(0) scale(1) rotateY(0)`;
-        slide.style.zIndex = '20';
+        slide.style.zIndex = '25';
         slide.style.opacity = '1';
+        slide.style.visibility = 'visible';
         slide.classList.add('active');
         slide.style.pointerEvents = 'auto';
+      } else if (factor > 2) {
+        // Hide distant cards to eliminate clutter
+        slide.style.opacity = '0';
+        slide.style.visibility = 'hidden';
+        slide.style.pointerEvents = 'none';
+        slide.style.transform = diff < 0 ? 'translateX(-300px) scale(0.6)' : 'translateX(300px) scale(0.6)';
+        slide.style.zIndex = '1';
       } else if (diff < 0) {
-        // Left slides
-        const factor = Math.abs(diff);
-        slide.style.transform = `translateX(${-110 - (factor - 1) * 70}px) scale(${1 - factor * 0.12}) rotateY(38deg)`;
-        slide.style.zIndex = (10 - factor).toString();
-        slide.style.opacity = Math.max(0.15, 0.7 - factor * 0.2).toString();
-        slide.style.pointerEvents = 'none';
+        // Left side cards (clean perspective)
+        slide.style.visibility = 'visible';
+        slide.style.transform = `translateX(${-120 - (factor - 1) * 85}px) scale(${1 - factor * 0.12}) rotateY(32deg)`;
+        slide.style.zIndex = (15 - factor).toString();
+        slide.style.opacity = (0.75 - factor * 0.25).toString();
+        slide.style.pointerEvents = 'auto';
       } else {
-        // Right slides
-        const factor = Math.abs(diff);
-        slide.style.transform = `translateX(${110 + (factor - 1) * 70}px) scale(${1 - factor * 0.12}) rotateY(-38deg)`;
-        slide.style.zIndex = (10 - factor).toString();
-        slide.style.opacity = Math.max(0.15, 0.7 - factor * 0.2).toString();
-        slide.style.pointerEvents = 'none';
+        // Right side cards (clean perspective)
+        slide.style.visibility = 'visible';
+        slide.style.transform = `translateX(${120 + (factor - 1) * 85}px) scale(${1 - factor * 0.12}) rotateY(-32deg)`;
+        slide.style.zIndex = (15 - factor).toString();
+        slide.style.opacity = (0.75 - factor * 0.25).toString();
+        slide.style.pointerEvents = 'auto';
       }
     });
 
@@ -312,68 +415,99 @@ function initCoverflowCarousel() {
     });
   }
 
-  // Event Listeners for slide clicks
-  slides.forEach((slide, idx) => {
-    slide.addEventListener('click', () => {
-      if (idx === currentIndex) {
-        const url = slide.getAttribute('data-url');
-        if (url) window.open(url, '_blank');
-      } else {
-        currentIndex = idx;
-        updateCoverflow();
-        resetAutoPlay();
-      }
-    });
-  });
-
-  // Event Listeners for dot clicks
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      currentIndex = idx;
-      updateCoverflow();
-      resetAutoPlay();
-    });
-  });
-
   // Next / Prev button triggers
-  const prevBtn = document.getElementById('coverflow-prev');
-  const nextBtn = document.getElementById('coverflow-next');
-
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : portfolio.length - 1;
+    prevBtn.onclick = () => {
+      if (!currentList.length) return;
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentList.length - 1;
       updateCoverflow();
       resetAutoPlay();
-    });
+    };
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex < portfolio.length - 1) ? currentIndex + 1 : 0;
+    nextBtn.onclick = () => {
+      if (!currentList.length) return;
+      currentIndex = (currentIndex < currentList.length - 1) ? currentIndex + 1 : 0;
       updateCoverflow();
+      resetAutoPlay();
+    };
+  }
+
+  // Tab switching
+  if (softwareTab && marketingTab) {
+    softwareTab.addEventListener('click', () => {
+      if (currentCategory === 'software') return;
+      softwareTab.className = 'hero-tab-btn active active-software flex-1 w-full py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all';
+      softwareTab.setAttribute('aria-selected', 'true');
+      const dot1 = softwareTab.querySelector('span');
+      if (dot1) dot1.className = 'w-2 h-2 rounded-full bg-cyan-300 animate-pulse shrink-0';
+
+      marketingTab.className = 'hero-tab-btn flex-1 w-full py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-slate-200';
+      marketingTab.setAttribute('aria-selected', 'false');
+      const dot2 = marketingTab.querySelector('span');
+      if (dot2) dot2.className = 'w-2 h-2 rounded-full bg-orange-400 shrink-0';
+
+      renderCategory('software', 0);
+      resetAutoPlay();
+    });
+
+    marketingTab.addEventListener('click', () => {
+      if (currentCategory === 'marketing') return;
+      marketingTab.className = 'hero-tab-btn active active-marketing flex-1 w-full py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all';
+      marketingTab.setAttribute('aria-selected', 'true');
+      const dot2 = marketingTab.querySelector('span');
+      if (dot2) dot2.className = 'w-2 h-2 rounded-full bg-orange-400 animate-pulse shrink-0';
+
+      softwareTab.className = 'hero-tab-btn flex-1 w-full py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-slate-200';
+      softwareTab.setAttribute('aria-selected', 'false');
+      const dot1 = softwareTab.querySelector('span');
+      if (dot1) dot1.className = 'w-2 h-2 rounded-full bg-cyan-400 shrink-0';
+
+      renderCategory('marketing', 0);
       resetAutoPlay();
     });
   }
 
+  // Touch gesture support for mobile swiping
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentList.length - 1;
+      } else {
+        currentIndex = (currentIndex < currentList.length - 1) ? currentIndex + 1 : 0;
+      }
+      updateCoverflow();
+      resetAutoPlay();
+    }
+  }, { passive: true });
+
   // Keyboard navigation
   const handleKeyDown = (e) => {
+    if (!currentList.length) return;
     if (e.key === 'ArrowRight') {
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : portfolio.length - 1;
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentList.length - 1;
       updateCoverflow();
       resetAutoPlay();
     } else if (e.key === 'ArrowLeft') {
-      currentIndex = (currentIndex < portfolio.length - 1) ? currentIndex + 1 : 0;
+      currentIndex = (currentIndex < currentList.length - 1) ? currentIndex + 1 : 0;
       updateCoverflow();
       resetAutoPlay();
     }
   };
-  
   document.addEventListener('keydown', handleKeyDown);
 
   // Autoplay functionality
   function startAutoPlay() {
     autoPlayTimer = setInterval(() => {
-      currentIndex = (currentIndex < portfolio.length - 1) ? currentIndex + 1 : 0;
+      if (!currentList.length) return;
+      currentIndex = (currentIndex < currentList.length - 1) ? currentIndex + 1 : 0;
       updateCoverflow();
     }, 4500);
   }
@@ -385,8 +519,8 @@ function initCoverflowCarousel() {
     }
   }
 
-  // Initial draw
-  updateCoverflow();
+  // Initial category render
+  renderCategory('software', 0);
   startAutoPlay();
 
   // Cleanup event listener when swapping page (SPA Router)

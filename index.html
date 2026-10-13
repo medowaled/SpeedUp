@@ -140,7 +140,7 @@
 
   <!-- LCP Image Preloading & Preconnect -->
   <link rel="preload" as="image" href="./src/assets/logo.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./src/assets/mustafa-khalil.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./src/assets/almutahida-plus.webp" fetchpriority="high">
 
   <!-- Google Fonts - Non-Render-Blocking Asynchronous Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,32 +203,51 @@
   <speedup-header></speedup-header>
 
   <!-- Main Dynamic Swappable Layout Content -->
-  <main class="flex-grow pt-24 transition-opacity duration-300">
+  <main class="flex-grow transition-opacity duration-300 bg-slate-950">
 
-    <!-- Hero Section with 3D Coverflow Carousel -->
-    <section class="relative bg-slate-950 text-white bg-grid-pattern pt-16 pb-20 md:py-28 overflow-hidden">
-      <!-- Glow Gradients decorative background -->
-      <div class="absolute top-1/4 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none">
+    <!-- Hero Section with 3D Coverflow Carousel (Dark Aurora Glow Background) -->
+    <section class="relative bg-slate-950 text-white hero-aurora-section pt-20 pb-10 md:pt-24 md:pb-16 overflow-hidden">
+      <!-- Glow Gradients decorative background matched to SpeedUp Logo Identity -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <!-- Brand Cyan / Royal Blue Glow Orb (Top Right / Center) -->
+        <div class="absolute -top-32 right-1/4 w-[480px] h-[480px] bg-gradient-to-br from-blue-600/25 via-cyan-500/20 to-transparent rounded-full blur-[110px] transform-gpu"></div>
+        <!-- Brand Vibrant Orange / Amber Glow Orb (Bottom Left) -->
+        <div class="absolute bottom-6 left-1/4 w-[420px] h-[420px] bg-gradient-to-tr from-orange-600/20 via-amber-500/15 to-transparent rounded-full blur-[110px] transform-gpu"></div>
+        <!-- Subtle Center Radial Light directly behind active carousel card -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[320px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       </div>
 
-      <!-- Top Text/Title Container -->
-      <div class="container mx-auto px-4 md:px-8 text-center max-w-3xl mx-auto mb-10 relative z-20 flex flex-col gap-4">
+      <!-- Top Text/Title Container with Category Switcher Tabs -->
+      <div class="container mx-auto px-4 text-center max-w-4xl mx-auto mb-6 relative z-20 flex flex-col items-center gap-2.5">
         <div
-          class="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-full px-4 py-1.5 w-max mx-auto">
+          class="inline-flex items-center gap-2 bg-slate-900/90 border border-slate-800 rounded-full px-3.5 py-1 w-max mx-auto shadow-md">
           <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
-          <span class="text-xs font-bold text-slate-300">أعمالنا الاستثنائية • اضغط على الموقع لزيارته</span>
+          <span class="text-[11px] sm:text-xs font-bold text-slate-300">أعمالنا الاستثنائية • اختر التخصص وتصفح المشاريع</span>
         </div>
 
-        <h1 id="active-slide-title"
-          class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-l from-blue-400 to-orange-400 leading-tight transition-all duration-300">
-          منصة التجارة الإلكترونية - Aura
+        <h1
+          class="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+          نبني برمجيات فائقة السرعة
+          <span class="block text-transparent bg-clip-text bg-gradient-to-l from-blue-400 via-cyan-400 to-orange-400 mt-1">
+            ونضاعف نموك الرقمي بالأرقام
+          </span>
         </h1>
 
-        <p id="active-slide-desc"
-          class="text-sm md:text-base text-slate-400 leading-relaxed max-w-xl mx-auto transition-all duration-300">
-          تصميم وتطوير متجر إلكتروني متكامل عالي السرعة لقطاع الأزياء الراقية.
-        </p>
+        <!-- Segmented Category Switcher Tabs (Vertical on mobile, horizontal on desktop) -->
+        <div class="mt-2 sm:mt-3 flex items-center justify-center w-full max-w-md mx-auto">
+          <div class="flex flex-col sm:flex-row w-full p-1.5 bg-slate-900/95 border border-slate-800/90 rounded-2xl backdrop-blur-xl shadow-2xl shadow-blue-950/40 gap-1.5 sm:gap-2" id="hero-category-tabs" role="tablist">
+            <button id="tab-software" data-category="software" role="tab" aria-selected="true"
+              class="hero-tab-btn active active-software flex-1 w-full py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+              <span class="w-2 h-2 rounded-full bg-cyan-300 animate-pulse shrink-0"></span>
+              <span>💻 مشاريع الويب والبرمجيات (Fast Code)</span>
+            </button>
+            <button id="tab-marketing" data-category="marketing" role="tab" aria-selected="false"
+              class="hero-tab-btn flex-1 w-full py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all text-slate-400 hover:text-slate-200">
+              <span class="w-2 h-2 rounded-full bg-orange-400 shrink-0"></span>
+              <span>📈 تسويق الأداء والبيانات (Fast Growth)</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Coverflow Slider Wrapper -->
@@ -238,20 +257,26 @@
         <button id="coverflow-prev" class="coverflow-btn shrink-0" aria-label="Previous Project">
           <svg class="w-6 h-6 transform -rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
           </svg>
         </button>
 
         <!-- Slider viewport with static initial LCP image pre-rendered for instant paint & zero CLS -->
         <div id="hero-coverflow" class="coverflow-container flex-grow">
-          <div class="coverflow-slide active" data-index="0" style="transform: translateX(0) scale(1) rotateY(0); z-index: 20; opacity: 1;">
-            <img src="./src/assets/mustafa-khalil.webp" alt="منصة مستر مصطفى خليل التعليمية" width="290" height="390" fetchpriority="high" decoding="async">
+          <div class="coverflow-slide active" data-index="0" data-url="https://almutahida-puls.com" style="transform: translateX(0) scale(1) rotateY(0); z-index: 20; opacity: 1;">
+            <img src="./src/assets/almutahida-plus.webp" alt="منصة شركة المتحدة بلس للحواجز والخزانات" width="290" height="390" fetchpriority="high" decoding="async">
             <div class="coverflow-overlay">
               <div class="flex justify-between items-center gap-2">
                 <div class="text-right">
-                  <h2 class="text-xs md:text-sm font-black leading-tight text-white">منصة مستر مصطفى خليل التعليمية</h2>
-                  <span class="text-[10px] font-bold text-slate-400 mt-1 block">تطوير منصات التعليم</span>
+                  <h3 class="text-xs md:text-sm font-black leading-tight text-white">منصة شركة المتحدة بلس للحواجز والخزانات</h3>
+                  <span class="text-[10px] font-bold text-slate-400 mt-1 block">Web Solutions</span>
                 </div>
+                <span class="shrink-0 text-xs font-bold text-blue-400 flex items-center gap-1">
+                  <span>زيارة</span>
+                  <svg class="w-3 h-3 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </span>
               </div>
             </div>
           </div>
@@ -265,14 +290,41 @@
         </button>
       </div>
 
+      <!-- Active Project Detail Card (Connected directly with center slide) -->
+      <div id="active-project-card" class="container mx-auto px-4 max-w-xl text-center relative z-20 mt-6">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 backdrop-blur-md shadow-2xl transition-all duration-300">
+          <div class="flex items-center justify-between gap-3 mb-2">
+            <span id="active-project-tag" class="text-xs font-bold px-3 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              Web Solutions
+            </span>
+            <a id="active-project-link" href="https://almutahida-puls.com" target="_blank" rel="noopener noreferrer"
+              class="text-xs font-bold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1.5 transition-colors">
+              <span>زيارة الموقع مباشرة</span>
+              <svg class="w-3.5 h-3.5 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+          <h2 id="active-project-title" class="text-base sm:text-xl font-black text-white leading-tight mb-1.5 transition-all duration-300">
+            منصة شركة المتحدة بلس للحواجز والخزانات
+          </h2>
+          <p id="active-project-desc" class="text-xs sm:text-sm text-slate-400 leading-relaxed transition-all duration-300">
+            منصة رقمية تفاعلية لعرض حواجز أمان نيوجيرسي للمشروعات والكباري والخزانات والأكشاك.
+          </p>
+        </div>
+      </div>
+
       <!-- Dots Indicators -->
       <div id="coverflow-dots" class="coverflow-dots"></div>
 
-      <!-- Standard CTA button beneath carousel -->
-      <div class="text-center mt-12 relative z-20">
+      <!-- Enhanced Premium CTA button -->
+      <div class="text-center mt-10 relative z-20">
         <a href="./contact.html"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-8 py-3.5 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all text-sm glow-effect inline-block">
-          اطلب استشارة مجانية لمشروعك
+          class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black px-9 py-4 rounded-xl shadow-xl shadow-blue-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all text-sm sm:text-base group">
+          <span>اطلب استشارة مجانية لمشروعك</span>
+          <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 12H5m7 7l-7-7 7-7"></path>
+          </svg>
         </a>
       </div>
     </section>
